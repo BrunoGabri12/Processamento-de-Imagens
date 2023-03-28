@@ -31,17 +31,15 @@ public class PointwiseTransform extends Object {
         
         //alpha = 255/ (max(f(x,y)) – min(f(x,y))) 
         double alpha = 255 / (max - min);
+		double pixel;
+        for(int i = 0 ; i < nx; i++){
 
-        for(int i = 0 ; i < ny; i++){
-
-            for (int j = 0 ; j < nx;i++){
-                double pixel = input.getPixel(i,j);
+            for (int j = 0 ; j < ny;j++){
+                pixel = input.getPixel(i,j);
                 pixel = alpha*(pixel - min);
                 output.putPixel(i,j,pixel);
             }
         }
-
-
 		return output;	
 	}
 
@@ -55,7 +53,7 @@ public class PointwiseTransform extends Object {
 
 		for(int i = 0 ; i < ny; i++){
 
-            for (int j = 0 ; j < nx;i++){
+            for (int j = 0 ; j < nx;j++){
                 double pixel = input.getPixel(i,j);
 				if(pixel > 10000){
 					output.putPixel(i,j,10000);
@@ -66,8 +64,7 @@ public class PointwiseTransform extends Object {
             }
         }
 
-		rescale(output);
-
+	
 		return output;
 	}
 	
@@ -79,7 +76,16 @@ public class PointwiseTransform extends Object {
 		int ny = zstack[0].getHeight();
 		int nz = zstack.length;
 		ImageAccess output = new ImageAccess(nx, ny);
-		// Add your code here
+		
+
+		for(int i = 0 ; i < zstack.length();i++){	
+			for (int x = 0 ; x < nx ; x++){
+				for(int y = 0 ; y< ny ; y++){
+
+				}
+			}
+		}
+
 		return output;	
 	}
 
